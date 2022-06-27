@@ -1,0 +1,58 @@
+source ~/.profile
+
+functions 
+function ktx {
+    kubectl config use-context $(kubectl config get-contexts -o name | fzf --select-1 --exit-0 --prompt "Select cluster: ") && kns
+}
+function kns {
+    kubectl config set-context $(kubectl config current-context) \
+            --namespace=$((kubectl get namespaces -o name | sed 's-namespace/--') \
+            | fzf -1 -0 --prompt "Select namespace: " --preview="kubectl get pods --namespace={}" --preview-window=down:40)
+}
+function kstats {
+    kubectl get nodes \
+        | awk 'FNR > 1 {print $1}' \
+        | xargs -I {} sh -c 'echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo '
+}
+
+PATH=$HOME/bin:/usr/local/bin:/bin:/usr/bin:/opt/homebrew/bin:/usr/local/sbin:/usr/sbin:/sbin
+
+#Oh My zsh
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="cloud"
+CASE_SENSITIVE="true"
+plugins=(aws brew docker gcloud git heroku kube-ps1 kubectl lpass macos mosh pip terraform thefuck zsh-z)
+source $ZSH/oh-my-zsh.sh
+
+#shellopts
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+#setopt SHARE_HISTORY             # Share history between all sessions.
+unsetopt SHARE_HISTORY           # This was driving me nuts
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
+setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+RPROMPT='$(kube_ps1)'
+export EDITOR="code --wait"
+
+
+#aliases
+alias pw='xkcdpass -d "-" --numwords 6 |pbcopy'
+alias kts ktx
+
+#completions
+eval "$(glab completion -s zsh)"
+eval "$(chezmoi completion zsh)"
+test -f '/Users/lijn/Library/Preferences/netlify/helper/path.zsh.inc' && source '/Users/lijn/Library/Preferences/netlify/helper/path.zsh.inc'
+#source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+#eval "$(/opt/homebrew/bin/brew shellenv)"
+
+autoload -U compinit && compinit
