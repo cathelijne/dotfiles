@@ -10,8 +10,9 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-[".oh-my-zsh/custom/plugins/zsh-z"]
-    type = "git-repo"
-    url = "https://github.com/agkozak/zsh-z.git"
-    refreshPeriod = "168h"
+#[".oh-my-zsh/custom/plugins/zsh-z"]
+#    type = "git-repo"
+#    url = "https://github.com/agkozak/zsh-z.git"
+#    exact = false
+#    refreshPeriod = "168h"
 
