@@ -1,4 +1,4 @@
-source ~/.profile
+#source ~/.profile
 
 functions 
 function ktx {
@@ -21,7 +21,7 @@ PATH=$HOME/bin:/usr/local/bin:/bin:/usr/bin:/opt/homebrew/bin:/usr/local/sbin:/u
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="cloud"
 CASE_SENSITIVE="true"
-plugins=(aws brew docker gcloud git heroku kube-ps1 kubectl lpass macos mosh pip terraform thefuck zsh-z)
+plugins=(aws brew docker gcloud git heroku kube-ps1 kubectl lpass macos mosh pip terraform thefuck)
 source $ZSH/oh-my-zsh.sh
 
 #shellopts
