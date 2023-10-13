@@ -56,7 +56,11 @@ export AWS_PAGER=
 
 #aliases
 alias pw='xkcdpass -d "-" --numwords 6 |pbcopy'
-alias kts ktx
+alias kts=ktx
+alias ks="kubecm s"
+alias kb="kustomize build"
+alias kak="kubectl apply -k"
+
 
 #plugins
 source /Users/cathelijne/.config/op/plugins.sh
@@ -72,6 +76,9 @@ eval "$(github-copilot-cli alias -- "$0")"  || true
 eval "$(direnv hook zsh)"  || true
 
 autoload -U compinit && compinit
+
+bindkey "^[^[[D" backward-word
+bindkey "^[^[[C" forward-word
 
 kubeoff
 echo "Done loading .zshrc"
