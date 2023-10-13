@@ -17,7 +17,7 @@ jq 1.7
 k9s 0.27.4
 kind 0.20.0
 kubecm 0.25.0
-kubectl 1.24.9
+kubectl 1.28.2
 kubeseal 0.24.1
 kustomize 5.1.1
 maven 3.9.5
