@@ -1,19 +1,5 @@
 #source ~/.profile
-
-functions 
-function ktx {
-    kubectl config use-context $(kubectl config get-contexts -o name | fzf --select-1 --exit-0 --prompt "Select cluster: ") && kns
-}
-function kns {
-    kubectl config set-context $(kubectl config current-context) \
-            --namespace=$((kubectl get namespaces -o name | sed 's-namespace/--') \
-            | fzf -1 -0 --prompt "Select namespace: " --preview="kubectl get pods --namespace={}" --preview-window=down:40)
-}
-function kstats {
-    kubectl get nodes \
-        | awk 'FNR > 1 {print $1}' \
-        | xargs -I {} sh -c 'echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo '
-}
+source .functions
 
 PATH=$HOME/bin:/usr/local/bin:/bin:/usr/bin:/opt/homebrew/bin:/usr/local/sbin:/usr/sbin:/sbin
 
@@ -21,7 +7,29 @@ PATH=$HOME/bin:/usr/local/bin:/bin:/usr/bin:/opt/homebrew/bin:/usr/local/sbin:/u
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="cloud"
 CASE_SENSITIVE="true"
-plugins=(aws brew docker gcloud git heroku kube-ps1 kubectl lpass macos mosh pip terraform thefuck)
+plugins=(
+  1password
+  asdf
+  aws
+  brew
+  direnv
+  docker
+  fzf
+  gh
+  git
+  iterm2
+  kube-ps1
+  kubectl
+  macos
+  mosh
+  mvn
+  node
+  npm
+  pip
+  rsync
+  terraform
+  tmux
+) # thefuck)
 source $ZSH/oh-my-zsh.sh
 
 #shellopts
@@ -39,20 +47,31 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-RPROMPT='$(kube_ps1)'
-export EDITOR="code --wait"
 
+# Not sure if this is needed with the fzf plugin loaded from ohmyzsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+RPROMPT='$(kube_ps1)'
+export AWS_PAGER=
 
 #aliases
 alias pw='xkcdpass -d "-" --numwords 6 |pbcopy'
 alias kts ktx
 
+#plugins
+source /Users/cathelijne/.config/op/plugins.sh
+
 #completions
-eval "$(glab completion -s zsh)"
-eval "$(chezmoi completion zsh)"
-test -f '/Users/lijn/Library/Preferences/netlify/helper/path.zsh.inc' && source '/Users/lijn/Library/Preferences/netlify/helper/path.zsh.inc'
-#source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-#eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($( whereis glab|awk '{print $2}') completion -s zsh)" || true
+eval "$(bw completion --shell zsh); compdef _bw bw;"
+eval "$(github-copilot-cli alias -- "$0")"  || true
+# test -f '/Users/lijn/Library/Preferences/netlify/helper/path.zsh.inc' && source '/Users/lijn/Library/Preferences/netlify/helper/path.zsh.inc'
+# eval "$(chezmoi completion zsh)" || true
+
+#hooks
+eval "$(direnv hook zsh)"  || true
 
 autoload -U compinit && compinit
+
+kubeoff
+echo "Done loading .zshrc"
