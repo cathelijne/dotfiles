@@ -9,7 +9,7 @@
     "enabled": true,
     "fileMatch": [
       "(^|/)\\.tool-versions$",
-      "(^dot_tool-versions$"
+      "(^|/)dot_tool-versions$"
     ]
   }
 }
