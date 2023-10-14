@@ -12,7 +12,7 @@ function kns {
             | fzf -1 -0 --prompt "Select namespace: " --preview="kubectl get pods --namespace={}" --preview-window=down:40)
 }
 
-# Collate stats from nodes
+# Collect stats from nodes
 function kstats {
   kubectl get nodes \
     | awk 'FNR > 1 {print $1}' \
@@ -26,11 +26,39 @@ function kstats {
 # - authgroup
 # - server
 # Call the function with the name of the 1Password item as argument
-function vpn {
+
+function oc {
   $(op item get hoekit --format json |jq -r '.fields[] |("export " + (.label|ascii_downcase) + "=" + .value)')
   echo "Touch your Yubikey:"
   read "PASSWORD2"
   sudo -p "sudo: " openconnect -u ${username} --authgroup=${authgroup} --form-entry "main:password=${password}" --form-entry "main:secondary_password=${PASSWORD2}" ${server}
+}
+
+# If your IT department sends a profile with the vpn connection,
+# openconnect might be a bit too open. In that case, use the 
+# official anyconnect client. You have to start the daemon first:
+# there are two options:
+# - run with sudo from the command line (or use the acd function)
+#   sudo /opt/cisco/anyconnect/bin/vpnagentd
+# - enable vpnagentd as a startup item in your MacOS login items
+#   there is more than one available item for anyconnect. Pick the
+#   one that affects all users.
+
+function acc {
+  $(op item get hoekit --format json |jq -r '.fields[] |("export " + (.label|ascii_downcase) + "=" + .value)')
+  echo $password|pbcopy
+  echo "================================================================="
+  echo "=  Your group is $authgroup and your username is $username,"
+  echo "=  after the first run, these will be prefilled in the form     ="
+  echo "=  I have copied your password. You can paste it on the prompt  ="
+  echo "=  For the second password, touch your yubikey                  ="
+  echo "================================================================="
+  /opt/cisco/anyconnect/bin/vpn -s connect $server
+  echo ""|pbcopy
+}
+
+function acd {
+  /opt/cisco/anyconnect/bin/vpn disconnect
 }
 
 # Fix mdfind output

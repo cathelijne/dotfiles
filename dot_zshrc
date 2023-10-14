@@ -1,5 +1,5 @@
 #source ~/.profile
-source .functions
+source ~/.functions
 
 PATH=$HOME/bin:/usr/local/bin:/bin:/usr/bin:/opt/homebrew/bin:/usr/local/sbin:/usr/sbin:/sbin
 
