@@ -45,7 +45,7 @@ function oc {
 #   one that affects all users.
 
 function acc {
-  $(op item get hoekit --format json |jq -r '.fields[] |("export " + (.label|ascii_downcase) + "=" + .value)')
+  $(op item get $1 --format json |jq -r '.fields[] |("export " + (.label|ascii_downcase) + "=" + .value)')
   echo $password|pbcopy
   echo "================================================================="
   echo "=  Your group is $authgroup and your username is $username,"
@@ -58,7 +58,7 @@ function acc {
 }
 
 function acd {
-  /opt/cisco/anyconnect/bin/vpn disconnect
+  sudo /opt/cisco/anyconnect/bin/vpn disconnect
 }
 
 # Fix mdfind output
