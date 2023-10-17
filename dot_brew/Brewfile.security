@@ -1,0 +1,6 @@
+brew "bitwarden-cli"
+brew "openconnect"
+brew "vault"
+brew "ykman"
+brew "ykpers"
+cask "1password-cli"

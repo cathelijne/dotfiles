@@ -1,0 +1,6 @@
+brew "argocd"
+brew "k9s"
+brew "krew"
+brew "kubecm"
+brew "kubeseal"
+brew "stern"

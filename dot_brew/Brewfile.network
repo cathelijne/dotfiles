@@ -1,0 +1,5 @@
+brew "openconnect"
+brew "syncthing", restart_service: true
+brew "tailscale", restart_service: true
+brew "telnet"
+brew "mosh"
