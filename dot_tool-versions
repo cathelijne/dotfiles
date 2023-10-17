@@ -1,7 +1,11 @@
 aws-iam-authenticator 0.6.11
 aws-vault 7.2.0
 awscli 2.13.26
+<<<<<<< HEAD
 gitleaks 8.18.0
+=======
+eksctl 0.162.0
+>>>>>>> c944e76 (updated .tool-versions)
 golang 1.21.3
 gradle 8.4
 helm 3.13.1
@@ -16,6 +20,5 @@ nodejs 20.8.1
 python 3.11.6
 sqlite 3.43.2
 terraform 1.6.1
-terraformer 0.8.24
 vault 1.15.0+ent
 yarn 1.22.19
