@@ -1,0 +1,2 @@
+brew "docker-slim"
+cask "docker"

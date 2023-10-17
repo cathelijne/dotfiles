@@ -1,0 +1,3 @@
+brew "rtl_433"
+brew "platformio"
+cask "android-platform-tools"

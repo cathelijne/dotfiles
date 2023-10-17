@@ -1,0 +1,5 @@
+brew "act"
+brew "gh"
+brew "git-lfs"
+brew "glab"
+brew "netlify-cli"
