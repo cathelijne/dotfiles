@@ -15,6 +15,6 @@ maven 3.9.5
 nodejs 20.8.1
 python 3.11.6
 sqlite 3.43.2
-terraform 1.6.1
+terraform 1.6.2
 vault 1.15.0+ent
 yarn 1.22.19
