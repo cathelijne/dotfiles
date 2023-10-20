@@ -65,6 +65,9 @@ alias kak="kubectl apply -k"
 #plugins
 source /Users/cathelijne/.config/op/plugins.sh
 
+# Set Java Home
+source ~/.asdf/plugins/java/set-java-home.zsh
+
 #completions
 eval "$($( whereis glab|awk '{print $2}') completion -s zsh)" || true
 eval "$(bw completion --shell zsh); compdef _bw bw;"

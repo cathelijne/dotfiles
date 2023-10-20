@@ -69,3 +69,14 @@ function mdfind() {
 function bwu() {
   export BW_SESSION=$(bw unlock --raw)
 }
+
+function javacerts {
+  echo $JAVA_HOME
+  keytool \
+    -importkeystore \
+    -srckeystore ~/.local/share/java/cacerts \
+    -srcstorepass changeit \
+    --deststorepass changeit \
+    -destkeystore $JAVA_HOME/lib/security/cacerts \
+    -noprompt
+}
