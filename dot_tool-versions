@@ -6,7 +6,7 @@ golang 1.21.3
 gradle 8.4
 helm 3.13.1
 helm-docs 1.11.3
-hugo 0.119.0
+hugo extended_0.119.0
 java openjdk-17
 kind 0.20.0
 kubectl 1.28.3
