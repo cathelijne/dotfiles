@@ -6,7 +6,7 @@
 branch=$(git rev-parse --abbrev-ref HEAD)
 git checkout --orphan clean-${branch}
 git add -A
-git commit -m "Clean up repeated code, incorporate Mark's changes to dependency scanning"
+git commit -m "Cleaning up ${branch}"
 git branch -D ${branch}
 git branch -m ${branch}
 git push -f origin ${branch}
