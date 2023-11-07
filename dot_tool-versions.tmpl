@@ -1,0 +1,20 @@
+awscli 2.13.29
+golang 1.21.3
+helm 3.13.1
+helm-docs 1.11.3
+hugo extended_0.119.0
+kind 0.20.0
+kubectl 1.28.3
+nodejs 20.9.0
+python 3.11.6
+terraform 1.6.2
+yarn 1.22.19
+
+{{- if eq .role "trovio" }}
+aws-iam-authenticator 0.6.11
+aws-vault 7.2.0
+eksctl 0.162.0
+gradle 8.4
+java openjdk-17
+maven 3.9.5
+{{- end }}
