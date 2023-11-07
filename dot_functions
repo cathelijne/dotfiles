@@ -1,3 +1,13 @@
+###############################################################################
+#                                                                             #
+# This file is managed by Chezmoi. Please edit with `chezmoi edit ~/.zshrc`   #
+# OR                                                                          #
+# `chezmoi edit --apply-template ~/.zshrc`                                    #
+# OR                                                                          #
+# directly in the git repo                                                    #
+#                                                                             #
+###############################################################################
+
 # functions
 
 # Change cluster and namespace. Although this is better handled by kubecm nowadays.
@@ -35,7 +45,7 @@ function oc {
 }
 
 # If your IT department sends a profile with the vpn connection,
-# openconnect might be a bit too open. In that case, use the 
+# openconnect might be a bit too open. In that case, use the
 # official anyconnect client. You have to start the daemon first:
 # there are two options:
 # - run with sudo from the command line (or use the acd function)
