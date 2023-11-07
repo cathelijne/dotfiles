@@ -22,7 +22,7 @@
       "matchCurrentVersion": "!/^0/",
       "ignoreTests": true,
       "automergeType": "branch",
-      "platforAutomerge": true,
+      "platformAutomerge": true,
       "automerge": true
     }
   ]
