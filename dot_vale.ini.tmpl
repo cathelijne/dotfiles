@@ -1,0 +1,26 @@
+StylesPath = ~/.vale/styles
+MinAlertLevel = suggestion
+
+{{- if eq .role "lijn" }}
+Packages = Google, RedHat, Hugo
+Vocab = lijn
+
+[*.{md,txt,html,doc}]
+BasedOnStyles = Vale, RedHat, Google
+
+Google.Passive = NO
+Google.Slang = suggestion
+Google.Will = suggestion
+Google.WordList = NO
+RedHat.Contractions = NO
+RedHat.DoNotUseTerms = suggestion
+{{- end }}
+
+{{- if eq .role "trovio" }}
+Packages = Google, Hugo, vale-trovio.zip
+Vocab = Trovio
+
+[*.{md,txt,html,doc}]
+BasedOnStyles = Vale, Google, Trovio
+{{- end }}
+
