@@ -3,7 +3,6 @@
 
   "extends": [
     "config:recommended",
-    ":automergeBranch",
     ":semanticCommits"
   ],
 
@@ -20,12 +19,10 @@
     {
       "matchUpdateTypes": ["minor", "patch"],
       "matchManagers": ["asdf"],
-      "matchFileNames": [
-        "(^|/)dot_tool-versions$",
-        "(^|/)dot_tool-versions.tmpl$"
-      ],
       "matchCurrentVersion": "!/^0/",
       "ignoreTests": true,
+      "automergeType": "branch",
+      "platforAutomerge": true,
       "automerge": true
     }
   ]
