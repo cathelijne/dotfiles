@@ -1,2 +1,4 @@
 brew "vale"
 brew "prettier"
+brew "markdownlint-cli"
+brew "markdownlint-cli2"
