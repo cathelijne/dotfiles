@@ -16,8 +16,15 @@
 
   "packageRules": [
     {
+      "groupName": "asdf dotfiles",
       "matchUpdateTypes": ["minor", "patch"],
+      "matchManagers": ["asdf"],
+      "matchFileNames": [
+        "(^|/)dot_tool-versions$",
+        "(^|/)dot_tool-versions.tmpl$"
+      ],
       "matchCurrentVersion": "!/^0/",
+      "ignoreTests": true,
       "automerge": true
     }
   ]
