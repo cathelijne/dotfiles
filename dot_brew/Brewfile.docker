@@ -1,1 +1,3 @@
+brew "dive"
+brew "docker-slim"
 cask "docker"

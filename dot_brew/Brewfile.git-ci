@@ -1,4 +1,5 @@
 brew "act"
+brew "bfg"
 brew "gh"
 brew "git-lfs"
 brew "glab"

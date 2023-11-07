@@ -1,6 +1,8 @@
 brew "argocd"
+brew "cmctl"
 brew "k9s"
 brew "krew"
 brew "kubecm"
 brew "kubeseal"
+brew "norwoodj/tap/helm-docs"
 brew "stern"
