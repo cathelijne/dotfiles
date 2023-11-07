@@ -17,7 +17,6 @@
 
   "packageRules": [
     {
-      "groupName": "asdf dotfiles",
       "matchUpdateTypes": ["minor", "patch"],
       "matchManagers": ["asdf"],
       "matchFileNames": [
