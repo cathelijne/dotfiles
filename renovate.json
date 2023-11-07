@@ -17,6 +17,7 @@
 
   "packageRules": [
     {
+      "groupName": "asdf",
       "matchUpdateTypes": ["minor", "patch"],
       "matchManagers": ["asdf"],
       "matchCurrentVersion": "!/^0/",
