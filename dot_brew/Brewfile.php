@@ -1,0 +1,2 @@
+brew "composer"
+brew "php"

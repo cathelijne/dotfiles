@@ -1,0 +1,2 @@
+brew "terraformer"
+brew "tfk8s"

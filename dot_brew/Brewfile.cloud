@@ -1,0 +1,2 @@
+brew "doctl"
+cask "google-cloud-sdk"

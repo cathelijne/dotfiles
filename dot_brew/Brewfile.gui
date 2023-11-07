@@ -1,0 +1,7 @@
+brew "qemu"
+cask "element"
+cask "finicky"
+cask "hiddenbar"
+cask "mqttx"
+cask "stats"
+cask "utm"
