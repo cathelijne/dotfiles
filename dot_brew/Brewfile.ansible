@@ -1,2 +1,4 @@
 brew "ansible"
 brew "ansible-lint"
+vscode "redhat.ansible"
+vscode "wolfmah.ansible-vault-inline"

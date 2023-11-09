@@ -1,2 +1,3 @@
 brew "mysql-client"
 brew "pgloader"
+cask "beekeeper-studio"

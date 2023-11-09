@@ -1,5 +1,6 @@
 brew "asciinema"
 brew "cowsay"
+brew "gnu-sed"
 brew "htop"
 brew "iftop"
 brew "lorem"

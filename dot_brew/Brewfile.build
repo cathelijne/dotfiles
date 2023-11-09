@@ -1,2 +1,4 @@
+brew "autoconf"
+brew "automake"
 brew "glib"
 brew "trunk"
