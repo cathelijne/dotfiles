@@ -26,11 +26,3 @@ RedHat.Contractions = NO
 RedHat.DoNotUseTerms = suggestion
 {{- end }}
 
-{{- if eq .role "work" }}
-Packages = Google, Hugo, vale-trovio.zip
-Vocab = Trovio
-
-[*.{md,txt,html,doc}]
-BasedOnStyles = Vale, Google, Trovio
-{{- end }}
-
