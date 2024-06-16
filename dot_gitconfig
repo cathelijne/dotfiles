@@ -13,11 +13,11 @@
 [bitbucket]
 	email = bitbucket@hornstra.com
 
-# [gitlab]
-#   email = gitlab@hornstra.com
+[gitlab]
+  email = gitlab@hornstra.com
 
 [pepperlink]
-	email = gitlab@hornstra.com
+	email = git@pepperlink.nl
 
 [codeberg]
 	email = mastodon@hornstra.com
