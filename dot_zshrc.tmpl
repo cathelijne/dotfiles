@@ -79,7 +79,7 @@ alias less="bat -f"
 alias cat="bat -P"
 alias cma="chezmoi apply"
 alias cmu="chezmoi update"
-alias cmpush="chezmoi git -- add . && chezmoi git -- commit -am 'cli changes'; chezmoi git -- push"
+alias cmpush="chezmoi git -- add . && chezmoi git -- commit -am 'cli changes' && chezmoi git -- push"
 
 {{- if eq .role "work" }}
 
