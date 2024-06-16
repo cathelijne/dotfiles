@@ -1,0 +1,43 @@
+[user]
+	email = git@pepperlink.nl
+	name = Cathelijne Hornstra
+	gitdir = /home/lijn/Work/self/git
+
+[init]
+	templatedir = ~/.git_templates
+	defaultBranch = main
+
+[github]
+	email = github@hornstra.com
+
+[bitbucket]
+	email = bitbucket@hornstra.com
+
+#[gitlab]
+	#email = gitlab@hornstra.com
+
+[pepperlink]
+	email = gitlab@hornstra.com
+
+[codeberg]
+	email = mastodon@hornstra.com
+
+[push]
+	default = matching
+
+[pull]
+	ff = only
+
+[core]
+	precomposeunicode = true
+	autocrlf = false
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+# This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
+[include]
+  path = /Users/lijn/Library/Preferences/netlify/helper/git-config
