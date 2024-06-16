@@ -38,11 +38,9 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 
-# This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
-# The first line resets the list of helpers so we can check Netlify's first.
 [credential]
   helper = ""
 
 [credential]
   helper = osxkeychain
-	helper = netlify
+#	helper = netlify
