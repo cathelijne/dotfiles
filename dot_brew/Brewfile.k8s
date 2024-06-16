@@ -1,5 +1,6 @@
 brew "argocd"
 brew "cmctl"
+brew "helm"
 brew "k9s"
 brew "krew"
 brew "kubecm"

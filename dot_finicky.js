@@ -2,7 +2,7 @@
 // Save as ~/.finicky.js
 
 module.exports = {
-  defaultBrowser: "Brave Browser",      
+  defaultBrowser: "Google Chrome",      
 
   handlers: [
     {

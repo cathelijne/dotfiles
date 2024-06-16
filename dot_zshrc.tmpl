@@ -63,7 +63,11 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 RPROMPT='$(kube_ps1)'
-export AWS_PAGER=
+
+#paging
+export AWS_PAGER=bat
+export PAGER=bat
+BAT_THEME=TwoDark
 
 #aliases
 alias pw='xkcdpass -d "-" --numwords 6 |pbcopy'
@@ -71,14 +75,20 @@ alias kts=ktx
 alias ks="kubecm s"
 alias kb="kustomize build"
 alias kak="kubectl apply -k"
+alias less="bat -f"
+alias cat="bat -P"
+alias cma="chezmoi apply"
+alias cmu="chezmoi update"
+alias cmpush="chezmoi git -- commit -am "cli changes" && chezmoi git -- push"
 
 {{- if eq .role "work" }}
 
 #plugins
+# 1password
 source /Users/cathelijne/.config/op/plugins.sh
 
 # Set Java Home
-source ~/.asdf/plugins/java/set-java-home.zsh
+# source ~/.asdf/plugins/java/set-java-home.zsh
 
 {{- end }}
 
