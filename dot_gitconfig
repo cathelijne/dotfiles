@@ -13,8 +13,8 @@
 [bitbucket]
 	email = bitbucket@hornstra.com
 
-#[gitlab]
-	#email = gitlab@hornstra.com
+# [gitlab]
+#   email = gitlab@hornstra.com
 
 [pepperlink]
 	email = gitlab@hornstra.com
