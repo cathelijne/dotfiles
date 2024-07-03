@@ -96,6 +96,7 @@ source /Users/cathelijne/.config/op/plugins.sh
 eval "$($( whereis glab|awk '{print $2}') completion -s zsh)" || true
 eval "$(bw completion --shell zsh); compdef _bw bw;"
 eval "$(github-copilot-cli alias -- "$0")"  || true
+test -f /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc && source /opt/homebrew/share/google-cloud-sdk/completion.zsh.inc
 # test -f '/Users/lijn/Library/Preferences/netlify/helper/path.zsh.inc' && source '/Users/lijn/Library/Preferences/netlify/helper/path.zsh.inc'
 # eval "$(chezmoi completion zsh)" || true
 
