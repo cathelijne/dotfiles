@@ -16,6 +16,8 @@ for i in $(find ${ORIGIN} -type d -name .git); do
   git fetch
   git pull
   gitleaks detect
+  echo "\n\n\n"
+  read -n 1 -s -r -p "Press any key to continue"
 done
 
 cd ${THIS_DIR}

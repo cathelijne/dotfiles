@@ -2,10 +2,14 @@
 	email = git@pepperlink.nl
 	name = Cathelijne Hornstra
 	gitdir = /home/lijn/Work/self/git
+	signingkey = 6B3450A4BE6E132D!
 
 [init]
 	templatedir = ~/.git_templates
 	defaultBranch = main
+
+[commit]
+	gpgsign = true
 
 [github]
 	email = github@hornstra.com
